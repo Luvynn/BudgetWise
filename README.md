@@ -1,120 +1,168 @@
-# Personal Finance Tracker
+# **BudgetWise – Personal Finance Tracker**
 
-# Project Reason
+## **Project Objective**
 
-To develop and challenge personal abilities by creating a fullstack project integrating a multitude of languages that I am personally passionate about encapsulating self-use cases. 
+The goal of this project is to create a full-stack personal finance tracker that integrates technologies I am passionate about while solving a real-world use case. This application is designed to run locally, allowing users to track their finances completely off-grid. 
 
-Ability to store and track my personal finances but completely off-grid and localized on my PC.
+In addition to providing practical functionality, this project emphasizes key software development skills, including:
+- **Version Control** (Git/GitHub)
+- **Project Management** (Agile)
+- **Design Principles** (SOLID)
+- **Data Structures and Algorithms (DSA)**
 
-This project has an emphasis on elevating version control skills, project management (Agile), Design Principles (SOLID), DSA and applying theoretical knowledge in a real-world application. 
+The **SOLID** design principles ensure the project maintains a clean, scalable codebase:
+- **Single Responsibility Principle (SRP):** Each class has a single responsibility.
+- **Open/Closed Principle (OCP):** Classes are open for extension but closed for modification.
+- **Liskov Substitution Principle (LSP):** Objects of a superclass can be replaced with objects of its subclass without affecting the application.
+- **Interface Segregation Principle (ISP):** Interfaces are small and focused, adhering to specific needs.
+- **Dependency Inversion Principle (DIP):** High-level modules depend on abstractions, not concrete implementations.
 
-The SOLID design principles ensure a maintainable and scalable codebase (good coding practice). Each class has a single responsibility (SRP), is open for extension but closed for modification (OCP), and can be easily replaced with alternative implementations (LSP). Interfaces are kept focused (ISP), and dependencies are managed through abstractions (DIP), making the project flexible, testable, and resilient to change.
+## **Project Summary**
 
-# Project Summary
+**Overview:**  
+BudgetWise allows users to manage personal finances through income/expense tracking, budgeting, report generation, and visualization of trends and categorized expenses.
 
-Project Overview
+### **Technology Stack**
+- **Frontend:** React with TypeScript
+- **Backend:** Flask (Python)
+- **Database:** SQLite (for local development)
+- **Charts:** Chart.js, Recharts
 
-Goal: Develop a personal finance tracker that supports income/expense tracking, budgeting, report generation, localization, and visualizations of trends and categorized expenses.
+---
 
-# Technology Stack:
--	Frontend: React with TypeScript
--   Backend: Flask with Python
--   Database: SQLite for local development
--   Charts: Chart.js, Recharts
+## **Getting Started**
 
-## Getting Started
+### **Installation**
 
-These instructions explain how to set up the project and use what has been developed so far.
+1. **Clone the Repository:**
+   ```bash
+   git clone git@github.com:Luvynn/finance-tracker.git
+   cd FinanceTracker
+   ```
 
-### Installation
+2. **Set Up Virtual Environment:**
+   ```bash
+   python -m venv virtual
+   virtual\Scripts\activate
+   ```
 
-1. **Clone the Repository**:
-    git clone https://github.com/keonleebv/FinanceTracker.git
-    cd FinanceTracker
+3. **Install Dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-2. **Setup Virtual Env**:
-    python -m venv virtual
-    virtual\Scripts\activate
+### **Running the Application**
 
-3. **Install Dependencies**:
-    pip install -r requirements.txt 
+1. **Start the Application:**
+   ```bash
+   python main.py
+   ```
 
-### Running
+2. **Access the Application:**
+   - Open your browser and visit: `http://127.0.0.1:5000/`
 
-1. **Start application**:
-    python main.py
+3. **Interacting with the API (Examples):**
 
-2. **Access application**:
-    ctrl+click on the browser: http://127.0.0.1:5000/ to interact with the API.
+   - **Add a Transaction:**
+     ```bash
+     Invoke-WebRequest -Uri http://127.0.0.1:5000/add_transaction -Method Post -Body '{"date": "2024-08-10", "description": "Grocery Shopping", "category": "Expense", "amount": 150.75}' -ContentType "application/json"
+     ```
 
-3. **Interacting with the API**:
-    I use Invoke-WebRequest to test API functionality
+   - **View Transactions:**
+     ```bash
+     Invoke-WebRequest -Uri http://127.0.0.1:5000/transactions -Method Get
+     ```
 
-    Add a Transaction:
+   - **Add a Budget:**
+     ```bash
+     Invoke-WebRequest -Uri http://127.0.0.1:5000/add_budget -Method Post -Body '{"category": "Food", "amount": 500}' -ContentType "application/json"
+     ```
 
-    Invoke-WebRequest -Uri http://127.0.0.1:5000/add_transaction -Method Post -Body '{"date": "2024-08-10", "description": "Grocery Shopping", "category": "Expense", "amount": 150.75}' -ContentType "application/json"
+   - **Compare Budgets:**
+     ```bash
+     Invoke-WebRequest -Uri http://127.0.0.1:5000/compare_budget -Method Get
+     ```
 
-    View Transactions:
+   - **Export Budgets to CSV:**
+     ```bash
+     Invoke-WebRequest -Uri http://127.0.0.1:5000/export_budgets_to_csv -Method Get
+     ```
 
-    Invoke-WebRequest -Uri http://127.0.0.1:5000/transactions -Method Get
+4. **Testing:**
+   - Run backend tests using:
+     ```bash
+     pytest
+     ```
 
-    Add a Budget:
+---
 
-    Invoke-WebRequest -Uri http://127.0.0.1:5000/add_budget -Method Post -Body '{"category": "Food", "amount": 500}' -ContentType "application/json"
+## **Agile Development Process**
 
-    Compare Budgets:
+The project is organized into several sprints, each focusing on specific functionalities:
 
-    Invoke-WebRequest -Uri http://127.0.0.1:5000/compare_budget -Method Get
+1. **Sprint 1:** Basic setup and transactions functionality.
+2. **Sprint 2:** Budgeting and localization.
+3. **Sprint 3:** Reports and graphs.
+4. **Sprint 4:** Refinement and user feedback.
 
-    Export Budgets to CSV:
+---
 
-    Invoke-WebRequest -Uri http://127.0.0.1:5000/export_budgets_to_csv -Method 
+## **Local Development Setup**
 
-4. **Testing**:
-    pytest 
+- **IDE:** Visual Studio Code
+- **Version Control:** Git and GitHub
+- **Design:** Figma for UI/UX design
+- **Documentation:** Markdown within the repository
+- **Testing:** 
+  - **Frontend:** Vite
+  - **Backend:** pytest
+  - **End-to-End Testing:** Cypress
 
-# Agile Development Process
+---
 
-Sprints: Organized into multiple sprints, each focusing on different aspects:
-1. Sprint 1: Basic setup and transactions functionality
-2. Sprint 2: Budgeting and localization
-3. Sprint 3: Reports and graphs
-4. Sprint 4: Refinement and user feedback
+## **Software Architecture**
 
-# Local Development Setup
-IDE: Visual Studio Code with relevant extensions 
-- 	Version Control: Git and GitHub (public repositories)
--	Design: Figma
--	Documentation: Markdown files within the repository
--	Testing: Vite for frontend, pytest for backend, Cypress for end-to-end testing
+### **Frontend Components**
 
-## Software Architecture
-# Frontend Components
--	Login/Signup
--	Dashboard
--	Transaction Management: Income/Expense Form, Transaction List
--	Budget Management: Budget Form, Budget Overview
--	Reports: Report View, Download Button
--	Graphs: Trend Graphs, Category Graphs
--	Localization
--	Settings
+- **User Authentication:** Login/Signup
+- **Dashboard:** Overview of transactions and budgets
+- **Transaction Management:** Income/Expense forms, transaction list
+- **Budget Management:** Budget forms, budget overview
+- **Reports:** Generate and download financial reports
+- **Graphs:** Visualize trends and categorized expenses
+- **Localization:** Multi-language support
+- **Settings:** Customize user preferences
 
-# Backend Components
--	Authentication: User Registration, User Login
--	API Endpoints
--	Transaction Management: Add/Edit/Delete Transaction, Get Transactions
--	Budget Management: Set Budget, Get Budget
--	Generation: Generate Report, Download Report
--	Graph Data: Get Trend Data, Get Category Data
--	Localization: Language Data
+### **Backend Components**
 
-# Database Tables
--	Users
--	Transactions
--	Budgets
--	Localization
+- **Authentication:** User registration and login
+- **API Endpoints:** CRUD operations for transactions and budgets
+- **Transaction Management:** Add, edit, delete, and view transactions
+- **Budget Management:** Set, compare, and view budgets
+- **Report Generation:** Generate financial reports and export to CSV
+- **Graph Data:** Retrieve data for trend and category graphs
+- **Localization:** Language data management
 
-# Monitoring and Debugging
--	Local Logging: Use Python's built-in logging module
-- Browser Developer Tools: Chrome DevTools for frontend debugging
+---
 
+## **Database Design**
+
+- **Users:** Stores user credentials and preferences
+- **Transactions:** Manages user transactions (income/expenses)
+- **Budgets:** Tracks user-defined budgets for categories
+- **Localization:** Manages multi-language support
+
+---
+
+## **Monitoring and Debugging**
+
+- **Backend Logging:** Python's logging module for backend logs.
+- **Frontend Debugging:** Chrome DevTools for monitoring React application.
+  
+---
+
+### **Future Enhancements**
+- **User Notifications:** Real-time budget alerts and notifications.
+- **Cloud Integration:** Move from local SQLite to a cloud-based database.
+- **Mobile App:** Create a mobile version using React Native.
+  
